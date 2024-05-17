@@ -2,14 +2,14 @@ FROM python:3.10-bullseye
 WORKDIR /app
 LABEL authors="admin"
 
+COPY . .
+
 RUN python -m venv ./.venv
 
 COPY deps.txt .
 
 RUN . ./.venv/bin/activate && \
     pip install -r deps.txt
-
-COPY . .
 
 EXPOSE 8080
 
